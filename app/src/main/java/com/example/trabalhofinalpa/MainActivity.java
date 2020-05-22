@@ -28,6 +28,15 @@ public class MainActivity extends AppCompatActivity {
         return;
     }
 
+        EditText editTextContato = (EditText) findViewById(R.id.editTextContato);
+        String contato = editTextContato.getText().toString();
+
+        if (contato.length() < 9) {
+            editTextContato.setError("Contato inválido. Preencha corretamente.");
+            editTextContato.requestFocus();
+            return;
+        }
+
         Intent intent = new Intent(this, MostraDadosActivity.class);
 
         startActivity(intent);
