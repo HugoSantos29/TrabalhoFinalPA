@@ -37,8 +37,38 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        EditText editTextIdade = (EditText) findViewById(R.id.editTextIdade);
+        String strIdade = editTextIdade.getText().toString();
+
+        int idade;
+        try {
+            idade = Integer.parseInt(strIdade);
+        } catch (NumberFormatException e) {
+            editTextIdade.setError("Idade invalida. Preencha a idade.");
+            editTextIdade.requestFocus();
+            return;
+        }
+
+        if (idade < 18) {
+            editTextIdade.setError("A idade tem de ser maior ou igual que 18.");
+            editTextIdade.requestFocus();
+            return;
+        }
+
+        EditText editTextMorada = (EditText) findViewById(R.id.editTextMorada);
+        String morada = editTextMorada.getText().toString();
+
+        if (morada.length() == 0)
+
+        {
+            editTextMorada.setError("Preencha a Morada");
+            editTextMorada.requestFocus();
+            return;
+        }
+
         Intent intent = new Intent(this, MostraDadosActivity.class);
 
         startActivity(intent);
+
     }
 }
