@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_NOME = "NOME" ;
+    public static final String EXTRA_IDADE = "IDADE" ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Intent intent = new Intent(this, MostraDadosActivity.class);
+
+        intent.putExtra(EXTRA_NOME,nome);
+        intent.putExtra(EXTRA_IDADE,idade);
 
         startActivity(intent);
 
