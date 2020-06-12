@@ -55,6 +55,20 @@
                         android:hint="@string/morada"
                         android:inputType="textLongMessage" />
 
+                    <CheckBox
+                        android:id="@+id/checkBoxVoluntario"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Voluntário" />
+
+                    <CheckBox
+                        android:id="@+id/checkBoxPessRisco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:text="Pessoa de risco" />
+
                     <Button
                         android:id="@+id/buttonEnviar"
                         android:layout_width="match_parent"
