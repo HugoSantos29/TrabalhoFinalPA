@@ -5,4 +5,6 @@
     <string name="morada">Morada</string>
     <string name="nome">Nome</string>
     <string name="enviar">Enviar</string>
+    <string name="voluntario">Voluntário</string>
+    <string name="pessoa_de_risco">Pessoa de risco</string>
 </resources>

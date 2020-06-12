@@ -55,19 +55,23 @@
                         android:hint="@string/morada"
                         android:inputType="textLongMessage" />
 
-                    <CheckBox
-                        android:id="@+id/checkBoxVoluntario"
+                    <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="Voluntário" />
+                        android:layout_margin="8dp">
 
-                    <CheckBox
-                        android:id="@+id/checkBoxPessRisco"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="Pessoa de risco" />
+                        <RadioButton
+                            android:id="@+id/radioButtonVoluntario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/voluntario" />
+
+                        <RadioButton
+                            android:id="@+id/radioButtonPessoaRisco"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pessoa_de_risco" />
+                    </RadioGroup>
 
                     <Button
                         android:id="@+id/buttonEnviar"
