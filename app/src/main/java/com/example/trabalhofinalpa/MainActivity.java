@@ -2,8 +2,10 @@ package com.example.trabalhofinalpa;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -78,5 +80,23 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(intent);
 
+    }
+
+    public void onRadioButtonClicked(View view) {
+
+        boolean checked = ((RadioButton) view).isChecked();
+
+        switch (view.getId()) {
+            case R.id.radioButtonPessoaRisco:
+                if (checked)
+                Log.d("RadioButtonPessoaRisco", "pessoa_de_risco");
+                break;
+
+            case R.id.radioButtonVoluntario:
+                if (checked)
+                Log.d("RadioButtonVoluntario", "voluntario");
+                break;
+
+        }
     }
 }
