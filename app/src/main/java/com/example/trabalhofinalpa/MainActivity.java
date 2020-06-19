@@ -13,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_NOME = "NOME" ;
     public static final String EXTRA_IDADE = "IDADE" ;
+    public static final String EXTRA_CONTATO = "CONTATO";
+    public static final String EXTRA_MORADA = "MORADA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         intent.putExtra(EXTRA_NOME,nome);
         intent.putExtra(EXTRA_IDADE,idade);
+        intent.putExtra(EXTRA_CONTATO,contato);
+        intent.putExtra(EXTRA_MORADA,morada);
 
         startActivity(intent);
 

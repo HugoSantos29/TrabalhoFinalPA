@@ -17,8 +17,10 @@ public class MostraDadosActivity extends AppCompatActivity {
 
         String nome = intent.getStringExtra(MainActivity.EXTRA_NOME);
         int idade = intent.getIntExtra(MainActivity.EXTRA_IDADE, 18);
+        String contato = intent.getStringExtra(MainActivity.EXTRA_CONTATO);
+        String morada = intent.getStringExtra(MainActivity.EXTRA_MORADA);
 
-        Toast.makeText(this, nome + " (idade = " + idade + ")", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, nome + " (idade = " + idade + ")" + " (contato: " + contato + ")" + " (morada: " + morada + ")", Toast.LENGTH_LONG).show();
 
     }
 }
