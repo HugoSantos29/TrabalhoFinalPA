@@ -102,8 +102,9 @@ public class MostraDadosActivity extends AppCompatActivity {
 
     public class PessoaHelper extends SQLiteOpenHelper {
 
+        //CONSTRUTOR
         public PessoaHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-            super(context, name, factory, version);
+            super(context, DATABASE_NAME, factory, DATABASE_VERSION);
         }
 
         @Override
@@ -115,6 +116,28 @@ public class MostraDadosActivity extends AppCompatActivity {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         }
+        public void load() {}
+        public void add() {}
+
+        //NOME E VERSÃO DA BASE DE DADOS
+        private static final String DATABASE_NAME = "basedados";
+        private static final int DATABASE_VERSION = 1;
+
+        //NOMES DAS TABELAS E COLUNAS
+        private static final String TABLE_PESSOA = "pessoa";
+        private static final String TABLE_CATEGORIA = "categoria";
+        private static final String COLUMN_PESSOA_ID = "idPessoa";
+        private static final String COLUMN_NOME = "nome";
+        private static final String COLUMN_IDADE = "idade";
+        private static final String COLUMN_CONTATO = "contato";
+        private static final String COLUMN_MORADA = "morada";
+        private static final String COLUMN_CATEGORIA_ID = "idCategoria";
+        private static final String COLUMN_CATEGORIA_GRUPO = "grupo";
+
+        //TAG PARA O LOGCAT
+        private static final String LOG = "PessoaHelper";
+
+
     }
 
     @Override
