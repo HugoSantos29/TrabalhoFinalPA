@@ -94,6 +94,24 @@
                         android:layout_marginRight="8dp"
                         android:text="@string/ver_dados" />
 
+                    <Button
+                        android:id="@+id/buttonEditar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/editar" />
+
+                    <Button
+                        android:id="@+id/buttonApagar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:text="@string/apagar" />
+
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>

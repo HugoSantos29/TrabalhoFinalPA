@@ -22,7 +22,8 @@ public class MostraDadosActivity extends AppCompatActivity {
         String nome, morada;
 
         //construtores
-        public Pessoa () {}
+        public Pessoa() {
+        }
 
         public Pessoa(int id, int idCategoria, int contato, int idade, String nome, String morada) {
             this.id = id;
@@ -34,44 +35,50 @@ public class MostraDadosActivity extends AppCompatActivity {
         }
 
         //setters e getters
-        public void setId (int id) {
+        public void setId(int id) {
             this.id = id;
         }
+
         public int getId() {
             return this.id;
         }
 
-        public void setIdCategoria (int idCategoria) {
+        public void setIdCategoria(int idCategoria) {
             this.idCategoria = idCategoria;
         }
+
         public int getIdCategoria() {
             return this.idCategoria;
         }
 
-        public void setIdade (int idade) {
+        public void setIdade(int idade) {
             this.idade = idade;
         }
+
         public int getIdade() {
             return this.idade;
         }
 
-        public void setContato (int contato) {
+        public void setContato(int contato) {
             this.contato = contato;
         }
+
         public int getContato() {
             return this.contato;
         }
 
-        public void setNome (String nome) {
+        public void setNome(String nome) {
             this.nome = nome;
         }
+
         public String getNome() {
             return this.nome;
         }
 
-        public void setMorada (String morada) {
+        public void setMorada(String morada) {
             this.morada = morada;
         }
+
         public String getMorada() {
             return this.morada;
         }
@@ -82,8 +89,10 @@ public class MostraDadosActivity extends AppCompatActivity {
         String grupo;
 
         //construtores
-        public Categoria() {}
-        public Categoria (String grupo) {
+        public Categoria() {
+        }
+
+        public Categoria(String grupo) {
             this.grupo = grupo;
         }
 
@@ -92,13 +101,15 @@ public class MostraDadosActivity extends AppCompatActivity {
         public void setId(int id) {
             this.id = id;
         }
+
         public int getId() {
             return this.id;
         }
 
-        public void setGrupo(String grupo){
+        public void setGrupo(String grupo) {
             this.grupo = grupo;
         }
+
         public String getGrupo() {
             return this.grupo;
         }
@@ -130,7 +141,6 @@ public class MostraDadosActivity extends AppCompatActivity {
             db.execSQL(CREATE_CATEGORIA_TABLE);
 
 
-
         }
 
         @Override
@@ -155,7 +165,7 @@ public class MostraDadosActivity extends AppCompatActivity {
             db.close();
         }
 
-        public ArrayList<Pessoa> getPessoas (String categoria) {
+        public ArrayList<Pessoa> getPessoas(String categoria) {
             ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
             String query = "SELECT " + TABLE_PESSOA + ".* FROM " +
@@ -177,7 +187,7 @@ public class MostraDadosActivity extends AppCompatActivity {
 
         }
 
-        public boolean deletePessoa (String pessoa_nome) {
+        public boolean deletePessoa(String pessoa_nome) {
             boolean result = false;
             String query = "Select * FROM " + TABLE_PESSOA + " WHERE " +
                     COLUMN_NOME + " = \" " + pessoa_nome + "\" ";
@@ -187,7 +197,7 @@ public class MostraDadosActivity extends AppCompatActivity {
             if (cursor.moveToFirst()) {
                 pessoa.setId(Integer.parseInt(cursor.getString(0)));
                 db.delete(TABLE_PESSOA, COLUMN_PESSOA_ID + " = ? ",
-                        new String[] { String.valueOf(pessoa.getId()) });
+                        new String[]{String.valueOf(pessoa.getId())});
                 cursor.close();
                 result = true;
             }
@@ -217,6 +227,8 @@ public class MostraDadosActivity extends AppCompatActivity {
 
 
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

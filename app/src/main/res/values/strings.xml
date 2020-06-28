@@ -8,4 +8,6 @@
     <string name="voluntario">Voluntário</string>
     <string name="pessoa_de_risco">Pessoa de risco</string>
     <string name="ver_dados">VER DADOS</string>
+    <string name="editar">editar</string>
+    <string name="apagar">apagar</string>
 </resources>
