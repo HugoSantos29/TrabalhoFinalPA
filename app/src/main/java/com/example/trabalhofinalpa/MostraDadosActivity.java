@@ -177,6 +177,25 @@ public class MostraDadosActivity extends AppCompatActivity {
 
         }
 
+        public boolean deletePessoa (String pessoa_nome) {
+            boolean result = false;
+            String query = "Select * FROM " + TABLE_PESSOA + " WHERE " +
+                    COLUMN_NOME + " = \" " + pessoa_nome + "\" ";
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(query, null);
+            Pessoa pessoa = new Pessoa();
+            if (cursor.moveToFirst()) {
+                pessoa.setId(Integer.parseInt(cursor.getString(0)));
+                db.delete(TABLE_PESSOA, COLUMN_PESSOA_ID + " = ? ",
+                        new String[] { String.valueOf(pessoa.getId()) });
+                cursor.close();
+                result = true;
+            }
+            db.close();
+            return result;
+
+        }
+
 
         //NOME E VERSÃO DA BASE DE DADOS
         private static final String DATABASE_NAME = "basedados";
