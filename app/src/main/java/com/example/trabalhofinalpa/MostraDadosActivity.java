@@ -3,6 +3,7 @@ package com.example.trabalhofinalpa;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class MostraDadosActivity extends AppCompatActivity {
 
@@ -151,7 +154,28 @@ public class MostraDadosActivity extends AppCompatActivity {
             db.insert(TABLE_PESSOA, null, values);
             db.close();
         }
-        public void load() {}
+
+        public ArrayList<Pessoa> getPessoas (String categoria) {
+            ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+
+            String query = "SELECT " + TABLE_PESSOA + ".* FROM " +
+                    COLUMN_CATEGORIA_GRUPO + "=' " + categoria + "' ";
+
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor cursor = db.rawQuery(query, null);
+            while (cursor.moveToNext()) {
+                Pessoa pessoa = new Pessoa();
+                pessoa.setId(cursor.getInt(0));
+                pessoa.setNome(cursor.getString(1));
+                pessoa.setIdade(cursor.getInt(2));
+                pessoa.setContato(cursor.getInt(3));
+                pessoa.setMorada(cursor.getString(4));
+                pessoa.setIdCategoria(cursor.getInt(5));
+                pessoas.add(pessoa);
+            }
+            return pessoas;
+
+        }
 
 
         //NOME E VERSÃO DA BASE DE DADOS
