@@ -109,6 +109,23 @@ public class MostraDadosActivity extends AppCompatActivity {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
+            //CRIAÇÃO DA TABELA PESSOA
+            String CREATE_PESSOA_TABLE = "CREATE TABLE" + TABLE_PESSOA + "(" +
+                    COLUMN_PESSOA_ID + " INTEGER PRIMARY KEY," +
+                    COLUMN_NOME + " TEXT," +
+                    COLUMN_IDADE + " INTEGER," +
+                    COLUMN_CONTATO + " INTEGER," +
+                    COLUMN_MORADA + " TEXT," +
+                    COLUMN_CATEGORIA_ID + " INTEGER" + ")";
+            db.execSQL(CREATE_PESSOA_TABLE);
+
+            //CRIAÇÃO DA TABELA CATEGORIA
+            String CREATE_CATEGORIA_TABLE = "CREATE TABLE" + TABLE_CATEGORIA + "(" +
+                    COLUMN_CATEGORIA_ID + " INTEGER PRIMARY KEY," +
+                    COLUMN_CATEGORIA_GRUPO + " TEXT)";
+            db.execSQL(CREATE_CATEGORIA_TABLE);
+
+
 
         }
 
