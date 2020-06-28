@@ -132,7 +132,12 @@ public class MostraDadosActivity extends AppCompatActivity {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+            db.execSQL("DROP TABLE IF EXISTS" + TABLE_PESSOA);
+            db.execSQL("DROP TABLE IF EXISTS" + TABLE_CATEGORIA);
+            onCreate(db);
+
         }
+
         public void load() {}
         public void add() {}
 
