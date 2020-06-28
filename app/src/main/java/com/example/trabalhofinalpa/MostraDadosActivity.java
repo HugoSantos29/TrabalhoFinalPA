@@ -1,5 +1,6 @@
 package com.example.trabalhofinalpa;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -110,7 +111,7 @@ public class MostraDadosActivity extends AppCompatActivity {
         @Override
         public void onCreate(SQLiteDatabase db) {
             //CRIAÇÃO DA TABELA PESSOA
-            String CREATE_PESSOA_TABLE = "CREATE TABLE" + TABLE_PESSOA + "(" +
+            String CREATE_PESSOA_TABLE = "CREATE TABLE " + TABLE_PESSOA + "(" +
                     COLUMN_PESSOA_ID + " INTEGER PRIMARY KEY," +
                     COLUMN_NOME + " TEXT," +
                     COLUMN_IDADE + " INTEGER," +
@@ -120,7 +121,7 @@ public class MostraDadosActivity extends AppCompatActivity {
             db.execSQL(CREATE_PESSOA_TABLE);
 
             //CRIAÇÃO DA TABELA CATEGORIA
-            String CREATE_CATEGORIA_TABLE = "CREATE TABLE" + TABLE_CATEGORIA + "(" +
+            String CREATE_CATEGORIA_TABLE = "CREATE TABLE " + TABLE_CATEGORIA + "(" +
                     COLUMN_CATEGORIA_ID + " INTEGER PRIMARY KEY," +
                     COLUMN_CATEGORIA_GRUPO + " TEXT)";
             db.execSQL(CREATE_CATEGORIA_TABLE);
@@ -132,14 +133,26 @@ public class MostraDadosActivity extends AppCompatActivity {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-            db.execSQL("DROP TABLE IF EXISTS" + TABLE_PESSOA);
-            db.execSQL("DROP TABLE IF EXISTS" + TABLE_CATEGORIA);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_PESSOA);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIA);
             onCreate(db);
 
         }
 
+        public void addPessoa(Pessoa pessoa) {
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_NOME, pessoa.getNome());
+            values.put(COLUMN_IDADE, pessoa.getIdade());
+            values.put(COLUMN_CONTATO, pessoa.getContato());
+            values.put(COLUMN_MORADA, pessoa.getMorada());
+            values.put(COLUMN_CATEGORIA_ID, pessoa.getIdCategoria());
+            SQLiteDatabase db = this.getWritableDatabase();
+            //INSERIR PESSOA
+            db.insert(TABLE_PESSOA, null, values);
+            db.close();
+        }
         public void load() {}
-        public void add() {}
+
 
         //NOME E VERSÃO DA BASE DE DADOS
         private static final String DATABASE_NAME = "basedados";
