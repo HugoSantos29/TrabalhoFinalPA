@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
         buttonVerDados = (Button) findViewById(R.id.buttonVerDados);
         AddData();
+        viewAll();
     }
 
     public void AddData() {
@@ -111,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                        Cursor res = myDb.getAllData();
                        if (res.getCount() == 0){
                            //show message
+                           showMessage("Erro", "Sem dados");
                            return;
                        }
 
@@ -124,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
                        }
                        // show all data
+                        showMessage("Dados", buffer.toString());
                     }
                 }
         );
@@ -131,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void showMessage(String title, String Message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
     }
 
 
