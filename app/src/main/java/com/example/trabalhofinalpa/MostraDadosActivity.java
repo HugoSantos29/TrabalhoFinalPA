@@ -59,4 +59,15 @@ public class MostraDadosActivity extends SQLiteOpenHelper {
 
     }
 
+    public boolean updateData(String id, String nome, String idade, String contato, String morada) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_1, id);
+        contentValues.put(COLUMN_2, nome);
+        contentValues.put(COLUMN_3, idade);
+        contentValues.put(COLUMN_4, contato);
+        contentValues.put(COLUMN_5, morada);
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[] { id });
+        return true;
+    }
 }

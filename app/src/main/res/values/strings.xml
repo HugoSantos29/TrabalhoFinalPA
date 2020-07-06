@@ -10,4 +10,5 @@
     <string name="ver_dados">VER DADOS</string>
     <string name="editar">editar</string>
     <string name="apagar">apagar</string>
+    <string name="id">ID</string>
 </resources>

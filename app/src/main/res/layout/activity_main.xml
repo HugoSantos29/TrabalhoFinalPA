@@ -78,17 +78,16 @@
                     <Button
                         android:id="@+id/buttonEnviar"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="37dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginRight="8dp"
-                        android:onClick="enviar"
                         android:text="@string/enviar" />
 
                     <Button
                         android:id="@+id/buttonVerDados"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="37dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="8dp"
@@ -97,7 +96,7 @@
                     <Button
                         android:id="@+id/buttonEditar"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="38dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="8dp"
@@ -106,11 +105,24 @@
                     <Button
                         android:id="@+id/buttonApagar"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="35dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginRight="8dp"
                         android:text="@string/apagar" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextID"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:hint="@string/id"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>

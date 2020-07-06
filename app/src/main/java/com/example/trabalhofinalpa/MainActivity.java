@@ -14,9 +14,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     MostraDadosActivity myDb;
-    EditText editTextNome, editTextIdade, editTextContato, editTextMorada;
+    EditText editTextNome, editTextIdade, editTextContato, editTextMorada, editTextID;
     Button buttonEnviar;
     Button buttonVerDados;
+    Button buttonEditar;
 
 
 
@@ -35,10 +36,32 @@ public class MainActivity extends AppCompatActivity {
         editTextIdade = (EditText) findViewById(R.id.editTextIdade);
         editTextContato = (EditText) findViewById(R.id.editTextContato);
         editTextMorada = (EditText) findViewById(R.id.editTextMorada);
+        editTextID = (EditText)findViewById(R.id.editTextID);
         buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
         buttonVerDados = (Button) findViewById(R.id.buttonVerDados);
+        buttonEditar = (Button) findViewById(R.id.buttonEditar);
         AddData();
         viewAll();
+        UpdateData();
+    }
+    public void UpdateData() {
+        buttonEditar.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        boolean isUpdate = myDb.updateData(editTextID.getText().toString(),
+                                editTextNome.getText().toString(),
+                                editTextIdade.getText().toString(),
+                                editTextContato.getText().toString(),
+                                editTextMorada.getText().toString());
+                        if (isUpdate == true)
+                            Toast.makeText(MainActivity.this, "Dados editados", Toast.LENGTH_LONG).show();
+                       else
+                            Toast.makeText(MainActivity.this, "Dados não editados", Toast.LENGTH_LONG).show();
+
+                    }
+                }
+        );
     }
 
     public void AddData() {
@@ -46,11 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                       boolean isInserted = myDb.insertData(editTextNome.getText().toString(),
-                              editTextIdade.getText().toString(),
-                                editTextContato.getText().toString(),
-                                editTextMorada.getText().toString());
-
                         if (editTextNome.length() == 0)
 
                         {
@@ -92,8 +110,14 @@ public class MainActivity extends AppCompatActivity {
                             editTextMorada.requestFocus();
                             return;
                         }
+                       boolean isInserted = myDb.insertData(editTextNome.getText().toString(),
+                              editTextIdade.getText().toString(),
+                                editTextContato.getText().toString(),
+                                editTextMorada.getText().toString());
 
-                       if (isInserted = true)
+
+
+                       if (isInserted == true)
                            Toast.makeText(MainActivity.this, "Dados enviados", Toast.LENGTH_LONG).show();
                        else
                            Toast.makeText(MainActivity.this, "Dados não enviados", Toast.LENGTH_LONG).show();
