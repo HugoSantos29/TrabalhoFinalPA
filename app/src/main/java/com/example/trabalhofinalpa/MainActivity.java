@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonEnviar;
     Button buttonVerDados;
     Button buttonEditar;
+    Button buttonApagar;
 
 
 
@@ -40,10 +41,27 @@ public class MainActivity extends AppCompatActivity {
         buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
         buttonVerDados = (Button) findViewById(R.id.buttonVerDados);
         buttonEditar = (Button) findViewById(R.id.buttonEditar);
+        buttonApagar = (Button) findViewById(R.id.buttonApagar);
         AddData();
         viewAll();
         UpdateData();
+        DeleteData();
     }
+    public void DeleteData() {
+        buttonApagar.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Integer deletedRows = myDb.deleteData(editTextID.getText().toString());
+                        if (deletedRows > 0)
+                                Toast.makeText(MainActivity.this, "Dados apagados", Toast.LENGTH_LONG).show();
+                            else
+                                Toast.makeText(MainActivity.this, "Dados não apagados", Toast.LENGTH_LONG).show();
+                    }
+                }
+        );
+    }
+
     public void UpdateData() {
         buttonEditar.setOnClickListener(
                 new View.OnClickListener() {
